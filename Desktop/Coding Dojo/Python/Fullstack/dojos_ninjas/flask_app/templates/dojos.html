@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+</head>
+<style>
+    .flex {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly
+      }
+        
+    
+    .left{
+        width: 300px;
+        min-height: 200px;
+        background-color: gray;
+        align-items: left;
+    }
+
+    .right{
+        width: 400px;
+       min-height: 200px;
+        background-color: gray;
+    }
+    .add_ninja{
+        padding: 15px;
+        background-color: orange;
+        margin-left: 500px;
+        margin-bottom: 50px;
+    }
+</style>
+<body>
+    <div class="container text-center">
+        <h1>Welcome to Dojos and Ninjas Page! </h1>
+        <br>
+        <div class="flex">
+            <div class="left"><br>
+                <h2 style="color: blue;">New Dojo</h2> <br>
+                <form action="/new_dojo" method="post">
+
+                    <div class="mb-3">
+                        <label for="name">Name:</label>
+                        <input type="text" name="dojo_html_name">
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">Add Dojo!</button>
+                </form>
+            </div>
+            <div class="right">
+                <h2 style="color: blue;">All Dojos</h2>
+                {% for dojo in all_dojos%}
+                <a href="/show_one_dojo/{{dojo.id}}">{{dojo.name}}</a><br>
+                {%endfor%}
+            </div>
+        </div><br>
+       
+
+    </div>
+    
+    <a class="add_ninja" href="/ninja/new">Add Ninja</a>
+</body>
+
+</html>

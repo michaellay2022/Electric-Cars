@@ -1,0 +1,1 @@
+SELECT * FROM ninjas LEFT JOIN dojos ON dojo_id = dojos.id;
